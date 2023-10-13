@@ -1,0 +1,83 @@
+#***** Switching an LED on and off *****#
+
+# First import the GPIO Zero library, and tell the Pi
+#   which GPIO pin you are using - in this case pin 17.
+# And press Enter on the keyboard.
+from gpiozero import LED
+import time
+led = LED(13)
+
+# To make the LED switch on, type the following and press Enter:
+led.on()
+
+time.sleep(3)
+# To make it switch off you can type:
+led.off()
+
+
+#***** Flashing an LED *****#
+
+# Create a new file by clicking New.
+# Save the new file by clicking Save. Save the file as gpio_led.py
+
+# Save the file and run the code with by clicking on Run.
+# The LED should be flashing on and off. To exit the program click Stop.
+
+from gpiozero import LED
+from time import sleep
+
+led = LED(13)
+
+while True:
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
+
+#***** Using buttons to get input *****#
+
+# Create a new file by clicking New.
+# Save the new file by clicking Save. Save the file as gpio_button.py.
+# This time you’ll need the Button class,
+#     and to tell it that the button is on pin 2.
+# Save and run the code.
+# Press the button and your text will appear.
+
+from gpiozero import Button
+button = Button(4)
+button.wait_for_press()
+print('You pushed me')
+
+#***** Manually controlling the LED *****#
+
+# Create a new file by clicking New.
+# Save the new file by clicking Save. Save the file as gpio_control.py.
+# Save and run your program. When you push the button,
+#    the LED should come on for three seconds.
+
+from gpiozero import LED, Button
+from time import sleep
+
+led = LED(13)
+button = Button(4)
+
+button.wait_for_press()
+led.on()
+sleep(3)
+led.off()
+
+#***** Making a switch *****#
+
+# Save and run the program. Now when the button is pressed, the LED
+#     will light up. It will turn off again when the button is released.
+
+from gpiozero import LED, Button
+from signal import pause
+
+led = LED(13)
+button = Button(4)
+
+button.when_pressed = led.on
+button.when_released = led.off
+
+pause()
