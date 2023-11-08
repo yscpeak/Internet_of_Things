@@ -1,0 +1,39 @@
+pip show esptool
+
+python -m esptool
+
+python -m esptool --chip esp32 --baud 460800 write_flash -z 0x1000 ESP32_GENERIC-20231005-v1.21.0.bin
+
+putty 沒反應，在windows powershell中打： esptool --chip esp32 erase_flash
+
+退出putty中的command prompt的micro python的方法： esptool --chip esp32 erase_flash
+
+退出putty中的command prompt的micro python的方法： ctrl + C
+
+===============================================================
+
+ampy is more reliable than Webrepl. 差別在於，前者需要實體board，而後者不用(只透過網路存取)。
+
+Webrepl is useful when you don't have the board physically available to plug into your computer, but you are able to access it over the network.
+
+WebREPL 連接方法
+
+第一種：http://replace your ip address:8266/
+
+第二種：ip address
+
+!!!!! 切記，使用WebREPL connect ip位址成功時，Putty必須關閉，不然會上傳失敗 !!!!!
+
+===============================================================
+
+在cmd導向 boot.py和main.py檔案所在的資料夾，輸入以下command代表上傳檔案到EPS32 Board：
+
+ampy --port COM9 put boot.py
+
+以下指令代表顯示ESP32 Board中的所有檔案
+
+ampy --port COM9 ls
+
+!!!!! 切記，使用amp指令時，Putty必須關閉，不然會上傳失敗 !!!!!
+
+===============================================================
