@@ -15,9 +15,9 @@ class SensorDataDisplay:
         try:
             self.layout = [
                 [sg.Text("Sensor Data", font=("Helvetica", 16))],
-                [sg.Text("Raw:", size=(8, 1)), sg.Text("Waiting...", key="RAW")],
-                [sg.Text("Percent:", size=(8, 1)), sg.Text("Waiting...", key="PERCENT")],
-                [sg.Text("Volts:", size=(8, 1)), sg.Text("Waiting...", key="VOLTS")],
+                [sg.Text("Raw:", size=(20, 1)), sg.Text("Waiting...", key="RAW")],
+                [sg.Text("Percent:", size=(20, 1)), sg.Text("Waiting...", key="PERCENT")],
+                [sg.Text("Volts:", size=(20, 1)), sg.Text("Waiting...", key="VOLTS")],
                 [sg.Button("Exit")]
             ]
             self.window = sg.Window("Sensor Data Display", self.layout)
