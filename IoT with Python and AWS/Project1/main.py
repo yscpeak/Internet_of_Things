@@ -13,6 +13,9 @@ from umqtt.simple import MQTTClient
 from sensor import Sensor # import sensor.py
 from machine import Timer
 
+ssid = 'iPhone'
+password = '11281128'
+
 def connect_to_wifi(ssid, password):
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
