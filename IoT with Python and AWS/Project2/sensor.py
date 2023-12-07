@@ -1,9 +1,6 @@
 from machine import ADC, Pin
 import time
 
-import paho.mqtt.publish as publish
-import json
-
 class Sensor:
     """
     This class handles the interaction with an ADC sensor.
